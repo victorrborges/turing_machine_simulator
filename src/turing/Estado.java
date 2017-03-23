@@ -1,4 +1,4 @@
-package estado;
+package turing;
 
 import java.util.HashSet;
 
@@ -23,4 +23,5 @@ public class Estado {
 		return nome;
 	}
 	
+
 }

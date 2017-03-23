@@ -1,4 +1,4 @@
-package estado;
+package turing;
 
 public class Transicao {
 
