@@ -11,6 +11,7 @@ public class Transicao {
 		this.simboloAtual = simboloAtual;
 		this.novoSimbolo = novoSimbolo;
 		this.direcao = direcao;
+		this.novoEstado = novoEstado;
 	}
 
 	public Estado getNovoEstado() {
