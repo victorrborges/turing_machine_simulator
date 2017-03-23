@@ -79,7 +79,7 @@ public class TuringMachine {
 		
 	}
 	
-	public void initializa() {
+	public void run() {
 		this.run(estadoInicial);
 	}
 	
