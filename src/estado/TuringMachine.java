@@ -60,12 +60,11 @@ public class TuringMachine {
 		this.fita.escreverPalavra(palavra);
 	}
 	
-	public void initializeByStep() {
-		this.runByStep(estadoInicial);
+	public void runByStep() {
+		this.runByStep(this.estadoAtual);
 	}
 	
-	public void runByStep(Estado estado) {
-		
+	private void runByStep(Estado estado) {
 		if (estadosFinais.contains(estado)) {
 			return;
 		}
