@@ -16,9 +16,11 @@ public class Fita {
 		for (int i = 0; i < saida.length; i++) {
 			this.palavra.add(saida[i]);
 		}
+		this.palavra.add("_");
 	}
 	
 	public void escreverSimbolo(String simbolo){
+		palavra.remove(cabecote);
 		palavra.add(cabecote, simbolo);
 	}
 	
@@ -31,10 +33,13 @@ public class Fita {
 	}
 	
 	public void andarParaEsquerda(){
-		cabecote++;
+		if (cabecote == 0) {
+			return;
+		}
+		cabecote--;
 	}
 	public void andarParaDireita(){
-		cabecote--;
+		cabecote++;
 	}
 	
 	public ArrayList<String> getPalavra(){

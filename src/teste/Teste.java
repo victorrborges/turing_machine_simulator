@@ -23,7 +23,7 @@ public class Teste {
 			e.printStackTrace();
 		}
 	
-		turing.escreverPalavra("1001001");
+		turing.escreverPalavra("0110");
 		turing.run();
 		System.out.println(turing.estadoAtual.getNome());
 	}

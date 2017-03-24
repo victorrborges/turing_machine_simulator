@@ -24,6 +24,7 @@ public class TuringMachine {
 		this.estadosFinais = new HashSet<Estado>();
 		this.passos = 0;
 		this.fita = new Fita();
+		this.estados.add(estadoInicial);
 	}
 
 	protected void criaEstado(String estado) {
@@ -71,21 +72,21 @@ public class TuringMachine {
 	}
 
 	private void runByStep(Estado estado) {
-		if (estadosFinais.contains(estado)) {
-			return;
-		}
-
-		for (Transicao transicao : estado.getTransicoes()) {
-			if (transicao.getSimboloAtual().equals(fita.getSimboloAtual()) || transicao.getSimboloAtual().equals("*")) {
-				if (!transicao.getNovoSimbolo().equals("*")) {
-					fita.escreverSimbolo(transicao.getNovoSimbolo());
-				}
-				fita.andar(transicao.getDirecao());
-				if (!transicao.getNovoEstado().equals("*")) {
-					this.estadoAtual = transicao.getNovoEstado();
-				}
-			}
-		}
+//		if (estadosFinais.contains(estado)) {
+//			return;
+//		}
+//
+//		for (Transicao transicao : estado.getTransicoes()) {
+//			if (transicao.getSimboloAtual().equals(fita.getSimboloAtual()) || transicao.getSimboloAtual().equals("*")) {
+//				if (!transicao.getNovoSimbolo().equals("*")) {
+//					fita.escreverSimbolo(transicao.getNovoSimbolo());
+//				}
+//				fita.andar(transicao.getDirecao());
+//				if (!transicao.getNovoEstado().equals("*")) {
+//					this.estadoAtual = transicao.getNovoEstado();
+//				}
+//			}
+//		}
 
 	}
 
@@ -94,24 +95,22 @@ public class TuringMachine {
 	}
 
 	public void run(Estado estado) {
-		if (estadosFinais.contains(estado)) {
-			return;
-		}
-
-		for (Transicao transicao : estado.getTransicoes()) {
-			if (transicao.getSimboloAtual().equals(fita.getSimboloAtual()) || transicao.getSimboloAtual().equals("*")) {
-				if (!transicao.getNovoSimbolo().equals("*")) {
-					fita.escreverSimbolo(transicao.getNovoSimbolo());
-				}
-				fita.andar(transicao.getDirecao());
-				if (!transicao.getNovoEstado().equals("*")) {
-					this.estadoAtual = transicao.getNovoEstado();
-				}
-			}
-		}
-
-		if (!estado.equals(estadoAtual))
-			run(this.estadoAtual);
+//		if (estadosFinais.contains(estado)) {
+//			return;
+//		}
+//
+//		for (Transicao transicao : estado.getTransicoes()) {
+//			if (transicao.getSimboloAtual().equals(fita.getSimboloAtual()) || transicao.getSimboloAtual().equals("*")) {
+//				if (!transicao.getNovoSimbolo().equals("*")) {
+//					fita.escreverSimbolo(transicao.getNovoSimbolo());
+//				}
+//				fita.andar(transicao.getDirecao());
+//				if (!transicao.getNovoEstado().equals("*")) {
+//					this.estadoAtual = transicao.getNovoEstado();
+//				}
+//			}
+//		}
+//		run(this.estadoAtual);
 	}
 
 	// leitura de arquivos
