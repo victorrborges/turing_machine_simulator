@@ -1,14 +1,12 @@
 package teste;
 
-import static org.junit.Assert.*;
-
 import org.junit.*;
 
 import turing.*;
 
 public class Teste {
 	private TuringMachine turing;
-
+	
 	@Before
 	public void inicial() {
 		turing = new TuringMachine();
@@ -23,7 +21,7 @@ public class Teste {
 			e.printStackTrace();
 		}
 	
-		turing.escreverPalavra("0110");
+		turing.escreverPalavra("10110101101");
 		turing.run();
 		System.out.println(turing.estadoAtual.getNome());
 	}

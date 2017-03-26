@@ -5,8 +5,6 @@ import java.util.Scanner;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 
 public class TuringMachine {
 
@@ -68,49 +66,26 @@ public class TuringMachine {
 	}
 
 	public void runByStep() {
-		this.runByStep(this.estadoAtual);
-	}
-
-	private void runByStep(Estado estado) {
-//		if (estadosFinais.contains(estado)) {
-//			return;
-//		}
-//
-//		for (Transicao transicao : estado.getTransicoes()) {
-//			if (transicao.getSimboloAtual().equals(fita.getSimboloAtual()) || transicao.getSimboloAtual().equals("*")) {
-//				if (!transicao.getNovoSimbolo().equals("*")) {
-//					fita.escreverSimbolo(transicao.getNovoSimbolo());
-//				}
-//				fita.andar(transicao.getDirecao());
-//				if (!transicao.getNovoEstado().equals("*")) {
-//					this.estadoAtual = transicao.getNovoEstado();
-//				}
-//			}
-//		}
-
+		if (estadosFinais.contains(this.estadoAtual)) {
+			return;
+		}
+		Transicao transicao = this.estadoAtual.getTransicao(this.fita.getSimboloAtual());
+		if (transicao == null) {
+			transicao = this.estadoAtual.getTransicao("*");
+		}
+		if (!transicao.getNovoSimbolo().equals("*")) {
+			fita.escreverSimbolo(transicao.getNovoSimbolo());
+		}
+		fita.andar(transicao.getDirecao());
+		if (!transicao.getNovoEstado().equals("*")) {
+			this.estadoAtual = transicao.getNovoEstado();
+		}
 	}
 
 	public void run() {
-		this.run(estadoInicial);
-	}
-
-	public void run(Estado estado) {
-//		if (estadosFinais.contains(estado)) {
-//			return;
-//		}
-//
-//		for (Transicao transicao : estado.getTransicoes()) {
-//			if (transicao.getSimboloAtual().equals(fita.getSimboloAtual()) || transicao.getSimboloAtual().equals("*")) {
-//				if (!transicao.getNovoSimbolo().equals("*")) {
-//					fita.escreverSimbolo(transicao.getNovoSimbolo());
-//				}
-//				fita.andar(transicao.getDirecao());
-//				if (!transicao.getNovoEstado().equals("*")) {
-//					this.estadoAtual = transicao.getNovoEstado();
-//				}
-//			}
-//		}
-//		run(this.estadoAtual);
+		while(!this.estadosFinais.contains(estadoAtual)) {
+			this.runByStep();
+		}
 	}
 
 	// leitura de arquivos
@@ -122,12 +97,10 @@ public class TuringMachine {
 	}
 
 	public void readFile() throws IOException {
-		BufferedReader in = new BufferedReader(new FileReader("/home/dayvsonwcn/workspace1/turing/machine.txt"));
-		BufferedWriter out = new BufferedWriter(new FileWriter("teste.txt"));
+		BufferedReader in = new BufferedReader(new FileReader("machine.txt"));
 		String line;
 	
 		while ((line = in.readLine()) != null) {
-			out.write(line + "\n");
 			if (!line.isEmpty()) {
 				String[] read = line.split(" ");
 				addTransicao(read[0], read[1], read[2], read[3], read[4]);
@@ -136,7 +109,6 @@ public class TuringMachine {
 
 		}
 		in.close();
-		out.close();
 	}
 
 }

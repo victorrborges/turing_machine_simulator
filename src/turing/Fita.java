@@ -12,16 +12,17 @@ public class Fita {
 	}
 
 	public void escreverPalavra(String palavra) {
+		this.palavra.add("_");
 		String[] saida = palavra.split("");
 		for (int i = 0; i < saida.length; i++) {
 			this.palavra.add(saida[i]);
 		}
 		this.palavra.add("_");
+		this.cabecote = 1;
 	}
 	
 	public void escreverSimbolo(String simbolo){
-		palavra.remove(cabecote);
-		palavra.add(cabecote, simbolo);
+		palavra.set(cabecote, simbolo);
 	}
 	
 	public void andar(String andar) {
@@ -33,9 +34,6 @@ public class Fita {
 	}
 	
 	public void andarParaEsquerda(){
-		if (cabecote == 0) {
-			return;
-		}
 		cabecote--;
 	}
 	public void andarParaDireita(){

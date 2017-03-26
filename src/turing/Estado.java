@@ -23,5 +23,12 @@ public class Estado {
 		return nome;
 	}
 	
-
+	public Transicao getTransicao(String simboloFita) {
+		for (Transicao transicao : this.transicoes) {
+			if (transicao.simboloAtual.equals(simboloFita)) {
+				return transicao;
+			}
+		}
+		return null;
+	}
 }
