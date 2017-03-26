@@ -2,10 +2,10 @@ package turing;
 
 public class Transicao {
 
-	String simboloAtual;
-	String novoSimbolo;
-	String direcao;
-	Estado novoEstado;
+	public String simboloAtual;
+	public String novoSimbolo;
+	public String direcao;
+	public Estado novoEstado;
 	
 	public Transicao(String simboloAtual, String novoSimbolo, String direcao, Estado novoEstado) {
 		this.simboloAtual = simboloAtual;

@@ -3,8 +3,8 @@ package turing;
 import java.util.ArrayList;
 
 public class Fita {
-	private ArrayList<String> palavra;
-	private int cabecote;
+	public ArrayList<String> palavra;
+	public int cabecote;
 
 	public Fita() {
 		this.palavra = new ArrayList<String>();

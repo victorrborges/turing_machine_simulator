@@ -1,11 +1,13 @@
-package teste;
+package test;
 
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
 
-import turing.*;
+import turing.TuringMachine;
 
-public class Teste {
-	private TuringMachine turing;
+public class TuringMachineTest {
+
+private TuringMachine turing;
 	
 	@Before
 	public void inicial() {
@@ -22,7 +24,11 @@ public class Teste {
 		}
 	
 		turing.escreverPalavra("10110101101");
+		
 		turing.run();
 		System.out.println(turing.estadoAtual.getNome());
+		System.out.println(turing.fita.toString());
+		System.out.println(turing.passos);
 	}
+	
 }

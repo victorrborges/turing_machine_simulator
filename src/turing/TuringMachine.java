@@ -8,12 +8,12 @@ import java.io.IOException;
 
 public class TuringMachine {
 
-	HashSet<Estado> estados;
-	Estado estadoInicial;
+	public HashSet<Estado> estados;
+	public Estado estadoInicial;
 	public Estado estadoAtual;
-	HashSet<Estado> estadosFinais;
-	int passos;
-	Fita fita;
+	public HashSet<Estado> estadosFinais;
+	public int passos;
+	public Fita fita;
 
 	public TuringMachine() {
 		this.estados = new HashSet<Estado>();
@@ -80,6 +80,7 @@ public class TuringMachine {
 		if (!transicao.getNovoEstado().equals("*")) {
 			this.estadoAtual = transicao.getNovoEstado();
 		}
+		this.passos++;
 	}
 
 	public void run() {
@@ -97,7 +98,7 @@ public class TuringMachine {
 	}
 
 	public void readFile() throws IOException {
-		BufferedReader in = new BufferedReader(new FileReader("machine.txt"));
+		BufferedReader in = new BufferedReader(new FileReader("syntax.txt"));
 		String line;
 	
 		while ((line = in.readLine()) != null) {

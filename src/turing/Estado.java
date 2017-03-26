@@ -3,8 +3,8 @@ package turing;
 import java.util.HashSet;
 
 public class Estado {
-	private String nome;
-	private HashSet<Transicao> transicoes;
+	public String nome;
+	public HashSet<Transicao> transicoes;
 	
 	public Estado(String nome) {
 		this.nome = nome;
