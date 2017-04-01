@@ -60,7 +60,7 @@ public class Main {
 		String toString = "";
 		String[] array = new String[turingMachine.fita.palavra.size()];
 		for (int i = 0; i < array.length; i++) {
-			array[i] = "-";
+			array[i] = " ";
 		}
 		array[turingMachine.fita.cabecote] = "^";
 		
