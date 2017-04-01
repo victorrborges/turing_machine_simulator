@@ -12,13 +12,15 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 		System.out.println("Bem vindo ao Simulador de Maquina de Turing.");
-		System.out.println("Adicione o arquivo .txt com a sintaxe desejada com o nome syntax.txt na raiz do projeto");
-		turingMachine.readFile();
+		//System.out.println("Adicione o arquivo .txt com a sintaxe desejada com o nome syntax.txt na raiz do projeto");
+		turingMachine.readFromConsole();// mudar se desejar leitura de arquivo
 		System.out.print("Digite a palavra: ");
 		turingMachine.escreverPalavra(scan.nextLine());
+		
 		String opcao;
 		printarFita();
 		printarCabecote();
+		
 		do {
 			System.out.println("");
 			System.out.println("O que você deseja fazer?");

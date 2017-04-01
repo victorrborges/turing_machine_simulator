@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class TuringMachine {
 
@@ -84,9 +85,28 @@ public class TuringMachine {
 	}
 
 	public void run() {
-		while(!this.estadosFinais.contains(estadoAtual)) {
+		while (!this.estadosFinais.contains(estadoAtual)) {
 			this.runByStep();
 		}
+	}
+
+	// leitura de console
+
+	public void readFromConsole() throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("\nDigite a sintaxe desejada seguida de 'end' para continuar:");
+		String in;
+
+		while (!(in = reader.readLine()).trim().equalsIgnoreCase("end")) {
+			if (!in.isEmpty() && !in.trim().equals("")) {
+				String[] read = in.split(" ");
+				if (!read[0].equals(";")) {
+					addTransicao(read[0], read[1], read[2], read[3], read[4]);
+				}
+			}
+
+		}
+		
 	}
 
 	// leitura de arquivos
@@ -100,12 +120,13 @@ public class TuringMachine {
 	public void readFile() throws IOException {
 		BufferedReader in = new BufferedReader(new FileReader("syntax.txt"));
 		String line;
-	
+
 		while ((line = in.readLine()) != null) {
 			if (!line.isEmpty()) {
 				String[] read = line.split(" ");
-				addTransicao(read[0], read[1], read[2], read[3], read[4]);
-
+				if (!read[0].equals(";")) {
+					addTransicao(read[0], read[1], read[2], read[3], read[4]);
+				}
 			}
 
 		}
