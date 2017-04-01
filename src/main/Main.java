@@ -21,7 +21,7 @@ public class Main {
 		printarCabecote();
 		do {
 			System.out.println("");
-			System.out.println("O que você deseja fazer?");
+			System.out.println("O que vocÃª deseja fazer?");
 			System.out.println("1 - Rodar ate o fim.");
 			System.out.println("2 - Rodar o proximo passo.");
 			System.out.println("3 - Sair.");
@@ -49,7 +49,9 @@ public class Main {
 		String toString = "";
 		ArrayList<String> fita = turingMachine.fita.palavra;
 		for(String string : fita) {
-			toString += string;
+			if(string.equals("_")) 
+				toString += " ";
+			else toString += string;
 		}
 		System.out.println("Fita: " + toString);
 	}
