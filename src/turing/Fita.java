@@ -13,18 +13,12 @@ public class Fita {
 
 	public void escreverPalavra(String palavra) {
 		String[] saida = palavra.split("");
-		for (int i = 0; i < saida.length * 5; i++) {
-			this.palavra.add("_");
-		}
 		for (int i = 0; i < saida.length; i++) {
 			if(saida[i].equals(" ")) this.palavra.add("_");
 			else
 				this.palavra.add(saida[i]);
 		}
-		for (int i = 0; i < saida.length * 5; i++) {
-			this.palavra.add("_");
-		}
-		this.cabecote = saida.length * 5;
+		this.cabecote = 0;
 	}
 	
 	public void escreverSimbolo(String simbolo){
@@ -40,9 +34,16 @@ public class Fita {
 	}
 	
 	public void andarParaEsquerda(){
+		if (cabecote == 0) {
+			this.cabecote++;
+			this.palavra.add(0, "_");
+		}
 		cabecote--;
 	}
 	public void andarParaDireita(){
+		if (cabecote == this.palavra.size() - 1) {
+			this.palavra.add("_");
+		}
 		cabecote++;
 	}
 	
