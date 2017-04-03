@@ -69,13 +69,16 @@ public class TuringMachine {
 		this.fita.escreverPalavra(palavra);
 	}
 
-	public void runByStep() {
+	public void runByStep() throws Exception {
 		if (estadosFinais.contains(this.estadoAtual)) {
 			return;
 		}
 		Transicao transicao = this.estadoAtual.getTransicao(this.fita.getSimboloAtual());
 		if (transicao == null) {
 			transicao = this.estadoAtual.getTransicao("*");
+			if (transicao == null) {
+				throw new Exception("Alfabeto nao suportado. Mude a palavra (3) ou a sintaxe (4).");
+			}
 		}
 		if (!transicao.getNovoSimbolo().equals("*")) {
 			fita.escreverSimbolo(transicao.getNovoSimbolo());
@@ -87,7 +90,7 @@ public class TuringMachine {
 		this.passos++;
 	}
 
-	public void run() {
+	public void run() throws Exception {
 		while (!this.estadosFinais.contains(estadoAtual)) {
 			this.runByStep();
 		}

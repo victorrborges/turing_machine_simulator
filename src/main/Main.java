@@ -43,14 +43,25 @@ public class Main {
 	
 	public static void rodar(String opcao) throws IOException {
 		if (opcao.equals("1")) {
-			turingMachine.run();
+			try {
+				turingMachine.run();
+				print();
+			} catch(Exception e) {
+				System.out.println(e.getMessage());
+			}
 		} else if (opcao.equals("2")) {
-			turingMachine.runByStep();
+			try {
+				turingMachine.runByStep();
+				print();
+			} catch(Exception e) {
+				System.out.println(e.getMessage());
+			}
 		} else if(opcao.equals("3")) {
 			System.out.println("");
 			System.out.print("Digite a palavra: ");
 			String palavra = scan.nextLine();
 			turingMachine.escreverPalavra(palavra);
+			print();
 		} else if (opcao.equals("4")) {
 			turingMachine.reset();
 			turingMachine.readFromConsole();
@@ -58,14 +69,16 @@ public class Main {
 			System.out.print("Digite a palavra: ");
 			String palavra = scan.nextLine();
 			turingMachine.escreverPalavra(palavra);
-		}
-		if (!opcao.equals("5")) {
-			printarFita();
-			printarCabecote();
-			printarEstadoAtual();
-			printarPassos();
+			print();
 		}
 		
+	}
+	
+	public static void print() {
+		printarFita();
+		printarCabecote();
+		printarEstadoAtual();
+		printarPassos();
 	}
 
 	public static void printarFita() {

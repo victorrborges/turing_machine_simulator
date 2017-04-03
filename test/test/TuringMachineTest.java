@@ -15,7 +15,7 @@ private TuringMachine turing;
 	}
 
 	@Test
-	public void testMachine() {
+	public void testMachine() throws Exception {
 		try {
 			turing.readFile();
 			
