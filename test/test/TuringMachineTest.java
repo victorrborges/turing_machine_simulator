@@ -23,7 +23,7 @@ private TuringMachine turing;
 			e.printStackTrace();
 		}
 	
-		turing.escreverPalavra("10110101101");
+		turing.escreverPalavra("101");
 		
 		turing.run();
 		System.out.println(turing.estadoAtual.getNome());

@@ -63,6 +63,9 @@ public class TuringMachine {
 	}
 
 	public void escreverPalavra(String palavra) {
+		this.passos = 0;
+		this.estadoAtual = this.estadoInicial;
+		this.fita = new Fita();
 		this.fita.escreverPalavra(palavra);
 	}
 
@@ -94,7 +97,7 @@ public class TuringMachine {
 
 	public void readFromConsole() throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		System.out.print("\nDigite a sintaxe desejada seguida de 'end' para continuar:");
+		System.out.println("\nDigite a sintaxe desejada seguida de 'end' para continuar: ");
 		String in;
 
 		while (!(in = reader.readLine()).trim().equalsIgnoreCase("end")) {
@@ -107,6 +110,16 @@ public class TuringMachine {
 
 		}
 		
+	}
+	
+	public void reset() {
+		this.estados = new HashSet<Estado>();
+		this.estadoInicial = new Estado("0");
+		this.estadoAtual = this.estadoInicial;
+		this.estadosFinais = new HashSet<Estado>();
+		this.passos = 0;
+		this.fita = new Fita();
+		this.estados.add(estadoInicial);
 	}
 
 	// leitura de arquivos

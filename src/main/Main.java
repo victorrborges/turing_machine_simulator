@@ -11,38 +11,59 @@ public class Main {
 	private static Scanner scan = new Scanner(System.in);
 	
 	public static void main(String[] args) throws IOException {
-		System.out.println("Bem vindo ao Simulador de Maquina de Turing.");
-		//System.out.println("Adicione o arquivo .txt com a sintaxe desejada com o nome syntax.txt na raiz do projeto");
-		turingMachine.readFromConsole();// mudar se desejar leitura de arquivo
-		System.out.print("Digite a palavra: ");
-		turingMachine.escreverPalavra(scan.nextLine());
-		
+		init();
 		String opcao;
-		printarFita();
-		printarCabecote();
-		
 		do {
 			System.out.println("");
-			System.out.println("O que você deseja fazer?");
+			System.out.println("O que voce deseja fazer?");
 			System.out.println("1 - Rodar ate o fim.");
 			System.out.println("2 - Rodar o proximo passo.");
-			System.out.println("3 - Sair.");
+			System.out.println("3 - Mudar a palavra.");
+			System.out.println("4 - Mudar a sintaxe.");
+			System.out.println("5 - Sair.");
 			System.out.print("Opcao desejada: ");
 			System.out.println("");
 			opcao = scan.nextLine();
 			rodar(opcao.trim());
-			printarFita();
-			printarCabecote();
-			printarEstadoAtual();
-			printarPassos();
-		} while (opcao.trim().equals("2") && !turingMachine.estadosFinais.contains(turingMachine.estadoAtual));
+		} while (!opcao.equals("5"));
+		
 	}
 	
-	public static void rodar(String opcao) {
+	public static void init() throws IOException {
+		System.out.println("Bem vindo ao Simulador de Maquina de Turing.");
+		turingMachine.readFromConsole();
+		System.out.println("");
+		System.out.print("Digite a palavra: ");
+		turingMachine.escreverPalavra(scan.nextLine());
+		printarFita();
+		printarCabecote();
+		printarEstadoAtual();
+		printarPassos();
+	}
+	
+	public static void rodar(String opcao) throws IOException {
 		if (opcao.equals("1")) {
 			turingMachine.run();
 		} else if (opcao.equals("2")) {
 			turingMachine.runByStep();
+		} else if(opcao.equals("3")) {
+			System.out.println("");
+			System.out.print("Digite a palavra: ");
+			String palavra = scan.nextLine();
+			turingMachine.escreverPalavra(palavra);
+		} else if (opcao.equals("4")) {
+			turingMachine.reset();
+			turingMachine.readFromConsole();
+			System.out.println("");
+			System.out.print("Digite a palavra: ");
+			String palavra = scan.nextLine();
+			turingMachine.escreverPalavra(palavra);
+		}
+		if (!opcao.equals("5")) {
+			printarFita();
+			printarCabecote();
+			printarEstadoAtual();
+			printarPassos();
 		}
 		
 	}
