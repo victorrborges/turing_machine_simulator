@@ -16,11 +16,11 @@ public class Main {
 		do {
 			System.out.println("");
 			System.out.println("O que voce deseja fazer?");
-			System.out.println("1 - Rodar ate o fim.");
-			System.out.println("2 - Rodar o proximo passo.");
-			System.out.println("3 - Mudar a palavra.");
-			System.out.println("4 - Mudar a sintaxe.");
-			System.out.println("5 - Sair.");
+			System.out.println("1 - Rodar ate o fim");
+			System.out.println("2 - Rodar o proximo passo");
+			System.out.println("3 - Mudar a palavra");
+			System.out.println("4 - Mudar a sintaxe");
+			System.out.println("5 - Sair");
 			System.out.print("Opcao desejada: ");
 			System.out.println("");
 			opcao = scan.nextLine();
@@ -30,7 +30,7 @@ public class Main {
 	}
 	
 	public static void init() throws IOException {
-		System.out.println("Bem vindo ao Simulador de Maquina de Turing.");
+		System.out.println("Bem vindo ao Simulador de Maquina de Turing");
 		turingMachine.readFromConsole();
 		System.out.println("");
 		System.out.print("Digite a palavra: ");
