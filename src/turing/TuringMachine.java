@@ -96,8 +96,6 @@ public class TuringMachine {
 		}
 	}
 
-	// leitura de console
-
 	public void readFromConsole() throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("\nDigite a sintaxe desejada seguida de 'end' para continuar: ");
@@ -110,9 +108,7 @@ public class TuringMachine {
 					addTransicao(read[0], read[1], read[2], read[3], read[4]);
 				}
 			}
-
 		}
-		
 	}
 	
 	public void reset() {
@@ -124,8 +120,6 @@ public class TuringMachine {
 		this.fita = new Fita();
 		this.estados.add(estadoInicial);
 	}
-
-	// leitura de arquivos
 
 	protected void scan() {
 		Scanner scan = new Scanner(System.in);
